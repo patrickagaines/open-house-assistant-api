@@ -13,8 +13,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="DataAccess\" />
+    <None Remove="TypeHandlers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataAccess\" />
+    <Folder Include="TypeHandlers\" />
   </ItemGroup>
 </Project>
