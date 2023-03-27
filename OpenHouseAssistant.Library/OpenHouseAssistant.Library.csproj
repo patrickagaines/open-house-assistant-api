@@ -14,9 +14,11 @@
   <ItemGroup>
     <None Remove="DataAccess\" />
     <None Remove="TypeHandlers\" />
+    <None Remove="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataAccess\" />
     <Folder Include="TypeHandlers\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 </Project>
