@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1705.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenHouseAssistant.API", "OpenHouseAssistant.API\OpenHouseAssistant.API.csproj", "{5A73694D-5C1A-4FF7-B3D1-2FB5C697BA94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenHouseAssistant.Library", "OpenHouseAssistant.Library\OpenHouseAssistant.Library.csproj", "{F22FE7CA-DC6D-4251-956C-5EE03B4AB764}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A73694D-5C1A-4FF7-B3D1-2FB5C697BA94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A73694D-5C1A-4FF7-B3D1-2FB5C697BA94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A73694D-5C1A-4FF7-B3D1-2FB5C697BA94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A73694D-5C1A-4FF7-B3D1-2FB5C697BA94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F22FE7CA-DC6D-4251-956C-5EE03B4AB764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F22FE7CA-DC6D-4251-956C-5EE03B4AB764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F22FE7CA-DC6D-4251-956C-5EE03B4AB764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F22FE7CA-DC6D-4251-956C-5EE03B4AB764}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA5F80B8-C4AB-4E3E-A1DB-56DC3CBED407}
+	EndGlobalSection
+EndGlobal
