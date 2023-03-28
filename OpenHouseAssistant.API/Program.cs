@@ -19,6 +19,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 });
 
 builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
+builder.Services.AddTransient<IOpenHouseData, OpenHouseData>();
 builder.Services.AddTransient<IPropertyData, PropertyData>();
 
 SqlMapper.AddTypeHandler(new DateOnlyTypeHandler());

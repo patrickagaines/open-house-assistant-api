@@ -14,41 +14,106 @@ namespace OpenHouseAssistant.API.Controllers;
 [Authorize]
 public class OpenHousesController : ControllerBase
 {
+    private readonly IOpenHouseData _data;
+
+    public OpenHousesController(IOpenHouseData data)
+    {
+        _data = data;
+    }
+
     private string GetUserId()
     {
         string output = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)!.Value;
         return output;
     }
 
-    // GET: api/OpenHouses
+    // GET: api/open-houses
     [HttpGet]
-    public IEnumerable<string> Get()
+    public async Task<ActionResult<List<OpenHouseModel>>> GetAll()
     {
-        return new string[] { "value1", "value2" };
+        try
+        {
+            var output = await _data.GetAllAssigned(GetUserId());
+            return Ok(output);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
-    // GET: api/OpenHouses/5
-    [HttpGet("{id}", Name = "Get")]
-    public string Get(int id)
+    // GET: api/open-houses/{openHouseId}
+    [HttpGet("{openHouseId}")]
+    public async Task<ActionResult<OpenHouseModel>> GetOne(int openHouseId)
     {
-        return "value";
+        try
+        {
+            var output = await _data.GetOneAssigned(GetUserId(), openHouseId);
+            return Ok(output);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
-    // POST: api/OpenHouses
+    // GET: api/open-houses/property/{propertyId}
+    [HttpGet("property/{propertyId}")]
+    public async Task<ActionResult<List<OpenHouseModel>>> GetAllByProperty(int propertyId)
+    {
+        try
+        {
+            var output = await _data.GetAllAssignedByProperty(GetUserId(), propertyId);
+            return Ok(output);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    // POST: api/open-houses
     [HttpPost]
-    public void Post([FromBody] string value)
+    public async Task<ActionResult<OpenHouseModel>> Post([FromBody] OpenHouseModel openHouse)
     {
+        try
+        {
+            var output = await _data.Create(GetUserId(), openHouse);
+            return Ok(output);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
-    // PUT: api/OpenHouses/5
-    [HttpPut("{id}")]
-    public void Put(int id, [FromBody] string value)
+    // PUT: api/open-houses/{openHouseId}
+    [HttpPut("{openHouseId}")]
+    public async Task<IActionResult> Put(int openHouseId, [FromBody] OpenHouseModel openHouse)
     {
+        try
+        {
+            await _data.Update(GetUserId(), openHouseId, openHouse);
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
-    // DELETE: api/OpenHouses/5
-    [HttpDelete("{id}")]
-    public void Delete(int id)
+    // DELETE: api/open-houses/{openHouseId}
+    [HttpDelete("{openHouseId}")]
+    public async Task<IActionResult> Delete(int openHouseId)
     {
+        try
+        {
+            await _data.Delete(GetUserId(), openHouseId);
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }
