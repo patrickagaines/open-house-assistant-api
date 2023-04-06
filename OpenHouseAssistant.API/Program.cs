@@ -3,9 +3,21 @@ using Dapper;
 using OpenHouseAssistant.Library.DataAccess;
 using OpenHouseAssistant.Library.TypeHandlers;
 
+var AllowSpecificOrigins = "_allowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+builder.Services.AddCors(opts =>
+{
+    opts.AddPolicy(name: AllowSpecificOrigins,
+        policy => {
+            policy.WithOrigins("http://localhost:5173")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opts =>
@@ -29,6 +41,8 @@ SqlMapper.AddTypeHandler(new TimeOnlyTypeHandler());
 var app = builder.Build();
 
 app.UseHttpsRedirection();
+
+app.UseCors(AllowSpecificOrigins);
 
 app.UseAuthentication();
 app.UseAuthorization();
