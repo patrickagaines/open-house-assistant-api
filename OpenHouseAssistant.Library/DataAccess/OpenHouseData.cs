@@ -65,7 +65,13 @@ public class OpenHouseData : IOpenHouseData
                 UserId = userId,
                 Date = openHouse.Date,
                 StartTime = openHouse.StartTime,
-                EndTime = openHouse.EndTime
+                EndTime = openHouse.EndTime,
+                PropertyId = openHouse.PropertyId,
+                StreetAddress = openHouse.StreetAddress,
+                UnitNumber = openHouse.UnitNumber,
+                City = openHouse.City,
+                State = openHouse.State,
+                ZipCode = openHouse.ZipCode
             },
             "Default");
     }
