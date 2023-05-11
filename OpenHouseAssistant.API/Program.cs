@@ -34,6 +34,7 @@ builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
 builder.Services.AddTransient<IGuestData, GuestData>();
 builder.Services.AddTransient<IOpenHouseData, OpenHouseData>();
 builder.Services.AddTransient<IPropertyData, PropertyData>();
+builder.Services.AddTransient<IPropertyUrlData, PropertyUrlData>();
 
 SqlMapper.AddTypeHandler(new DateOnlyTypeHandler());
 SqlMapper.AddTypeHandler(new TimeOnlyTypeHandler());
