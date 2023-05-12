@@ -19,7 +19,7 @@ public class RemoteCheckInsController : ControllerBase
 
     // GET: api/remote-check-ins/{propertyId}
     [HttpGet("{propertyId}")]
-    public async Task<ActionResult<RemoteCheckInInfoModel>> Get(int propertyId)
+    public async Task<ActionResult<RemoteCheckInInfoModel>> GetInfo(int propertyId)
     {
         try
         {

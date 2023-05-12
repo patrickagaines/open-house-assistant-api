@@ -18,9 +18,9 @@ public class PropertyData : IPropertyData
             "Default");
     }
 
-    public async Task<PropertyModel?> GetOneAssigned(string userId, int propertyId)
+    public async Task<PropertyWithUrlModel?> GetOneAssigned(string userId, int propertyId)
     {
-        var results = await _sql.LoadData<PropertyModel, dynamic>("dbo.spProperties_GetOneAssigned",
+        var results = await _sql.LoadData<PropertyWithUrlModel, dynamic>("dbo.spProperties_GetOneAssigned",
             new { UserId = userId, PropertyId = propertyId },
             "Default");
 

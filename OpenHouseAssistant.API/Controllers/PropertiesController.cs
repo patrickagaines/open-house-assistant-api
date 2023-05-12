@@ -44,7 +44,7 @@ public class PropertiesController : ControllerBase
 
     // GET: api/properties/{propertyId}
     [HttpGet("{propertyId}")]
-    public async Task<ActionResult<PropertyModel>> GetOne(int propertyId)
+    public async Task<ActionResult<PropertyWithUrlModel>> GetOne(int propertyId)
     {
         try
         {
