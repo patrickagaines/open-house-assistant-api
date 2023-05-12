@@ -5,5 +5,5 @@ namespace OpenHouseAssistant.Library.DataAccess;
 public interface IRemoteCheckInData
 {
     Task CheckIn(GuestCheckInModel guestCheckIn);
-    Task<RemoteCheckInInfoModel?> GetRedirectUrlByPropertyId(int propertyId);
+    Task<RemoteCheckInInfoModel?> GetRemoteCheckInInfo(int propertyId);
 }

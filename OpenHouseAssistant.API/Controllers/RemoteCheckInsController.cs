@@ -19,11 +19,11 @@ public class RemoteCheckInsController : ControllerBase
 
     // GET: api/remote-check-ins/{propertyId}
     [HttpGet("{propertyId}")]
-    public async Task<ActionResult<RemoteCheckInInfoModel>> GetRedirectUrl(int propertyId)
+    public async Task<ActionResult<RemoteCheckInInfoModel>> Get(int propertyId)
     {
         try
         {
-            var output = await _data.GetRedirectUrlByPropertyId(propertyId);
+            var output = await _data.GetRemoteCheckInInfo(propertyId);
             return Ok(output);
         }
         catch (Exception ex)
