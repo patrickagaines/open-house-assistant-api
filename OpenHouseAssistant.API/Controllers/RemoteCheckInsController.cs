@@ -10,9 +10,9 @@ namespace OpenHouseAssistant.API.Controllers;
 [ApiController]
 public class RemoteCheckInsController : ControllerBase
 {
-    private readonly IRemoteCheckInsData _data;
+    private readonly IRemoteCheckInData _data;
 
-    public RemoteCheckInsController(IRemoteCheckInsData data)
+    public RemoteCheckInsController(IRemoteCheckInData data)
     {
         _data = data;
     }

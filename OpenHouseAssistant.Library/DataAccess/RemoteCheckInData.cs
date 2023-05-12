@@ -2,11 +2,11 @@
 
 namespace OpenHouseAssistant.Library.DataAccess;
 
-public class RemoteCheckInsData : IRemoteCheckInsData
+public class RemoteCheckInData : IRemoteCheckInData
 {
     private readonly ISqlDataAccess _sql;
 
-    public RemoteCheckInsData(ISqlDataAccess sql)
+    public RemoteCheckInData(ISqlDataAccess sql)
     {
         _sql = sql;
     }
