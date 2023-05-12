@@ -11,9 +11,9 @@ public class RemoteCheckInData : IRemoteCheckInData
         _sql = sql;
     }
 
-    public async Task<string?> GetRedirectUrlByPropertyId(int propertyId)
+    public async Task<RemoteCheckInInfoModel?> GetRedirectUrlByPropertyId(int propertyId)
     {
-        var results = await _sql.LoadData<string, dynamic>("dbo.spRemoteCheckIns_GetRedirectUrlByPropertyId",
+        var results = await _sql.LoadData<RemoteCheckInInfoModel, dynamic>("dbo.spRemoteCheckIns_GetRemoteCheckInInfo",
             new { PropertyId = propertyId },
             "Default");
 
